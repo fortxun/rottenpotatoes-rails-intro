@@ -7,7 +7,7 @@ class Movie < ActiveRecord::Base
     if ratings.nil?
       Movie.all
     else
-      self.where(rating: IN @ratings)
+      self.where(rating: #{@ratings})
     end
   end
 end
