@@ -11,11 +11,11 @@
     </div>
   <% end %>
   <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
-<% end %>
+<% end %> 
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th>Movie Title</th>
+      <th><%= link_to "Movie Title", movie_path(sort_by => title_header) %></th>
       <th>Rating</th>
       <th>Release Date</th>
       <th>More Info</th>
