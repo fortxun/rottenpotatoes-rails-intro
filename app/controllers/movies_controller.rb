@@ -29,6 +29,8 @@ class MoviesController < ApplicationController
         else
       end
       if !params[:sort_by].nil?
+        session[:sort_by] = params[:sort_by]
+        session[:ratings] = @ratings_to_show
         @movies = Movie.with_ratings(@ratings_to_show).order(params[:sort_by])
       else
         @movies = Movie.with_ratings(@ratings_to_show).order(session[:sort_by])
