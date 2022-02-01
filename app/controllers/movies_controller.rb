@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
       if params[:sort_by] == 'title'
         @title_header = 'hilite'
       elsif params[:sort_by] == 'release_date'
-        @release_date_header == 'hilite'
+        @release_date_header = 'hilite'
       else
       end
     @movies = Movie.with_ratings(@ratings_to_show).order(params[:sort_by])
