@@ -20,15 +20,15 @@ class MoviesController < ApplicationController
       end
     end
     if params[:sort_by].nil? && session[:sort_by].nil?
-    @movies = Movie.with_ratings(@ratings_to_show)
+        @movies = Movie.with_ratings(@ratings_to_show)
     else
       if params[:sort_by] == 'title' || session[:sort_by] == 'title'
-        @title_header = 'hilite'
-      elsif params[:sort_by] == 'release_date'  || session[:release_date] == 'release_date'
-        @release_date_header = 'hilite'
-      else
+          @title_header = 'hilite'
+        elsif params[:sort_by] == 'release_date'  || session[:release_date] == 'release_date'
+          @release_date_header = 'hilite'
+        else
       end
-      if params[:sort_by].nil?
+      if !params[:sort_by].nil?
         @movies = Movie.with_ratings(@ratings_to_show).order(params[:sort_by])
       else
         @movies = Movie.with_ratings(@ratings_to_show).order(session[:sort_by])
