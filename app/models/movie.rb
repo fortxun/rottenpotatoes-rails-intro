@@ -3,11 +3,11 @@ class Movie < ActiveRecord::Base
   def self.all_ratings
     return @@all_ratings
   end
-  def self.with_ratings(ratings)
+  def self.with_ratings(ratings, sort_by=title)
     if ratings.nil?
-      return Movie.all
+      return Movie.all.order(sort_by:)
     else
-      return Movie.where(rating: ratings)
+      return Movie.where(rating: ratings).order(sort_by:)
     end
   end
 end
