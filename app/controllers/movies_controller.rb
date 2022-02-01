@@ -21,6 +21,7 @@ class MoviesController < ApplicationController
     if params[:sort_by].nil?
     @movies = Movie.with_ratings(@ratings_to_show)
     else
+      @title_header = 'hilite'
     @movies = Movie.with_ratings(@ratings_to_show).order(params[:sort_by])
     end
   end
