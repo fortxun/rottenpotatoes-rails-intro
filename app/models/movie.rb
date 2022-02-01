@@ -5,9 +5,9 @@ class Movie < ActiveRecord::Base
   end
   def self.with_ratings(ratings, sort_by=title)
     if ratings.nil?
-      return Movie.all.order(sort_by:)
+      return Movie.all.order(sort_by)
     else
-      return Movie.where(rating: ratings).order(sort_by:)
+      return Movie.where(rating: ratings).order(sort_by)
     end
   end
 end
